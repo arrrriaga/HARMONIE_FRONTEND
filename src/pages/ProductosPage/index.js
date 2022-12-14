@@ -10,7 +10,6 @@ const ProductosPage = () => {
     productos,
     carrito,
     guardarProductos,
-    guardarCarrito,
 
     agregarACarrito,
   } = useContext(ProductContext);
@@ -49,7 +48,6 @@ const ProductosPage = () => {
                   price: producto.price,
                   _id: producto._id,
                 });
-                guardarCarrito(carrito);
               }}
             >
               Add to cart

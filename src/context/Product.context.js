@@ -7,24 +7,38 @@ const ProductProvider = ({ children }) => {
   const [productos, setProductos] = useState([]);
   const [carrito, setCarrito] = useState([]);
 
+  // const saveCarrito = (carritoStorage) => setCarrito(carritoStorage);
+  const saveCarrito = (carritoStorage) => setCarrito(carritoStorage);
   const guardarProductos = (newProdutos) => setProductos(newProdutos);
   const agregarACarrito = (newProdutos) => {
-    setCarrito([...carrito, newProdutos]);
-  };
-  const guardarCarrito = () => {
-    localStorage.setItem("carrito", JSON.stringify(carrito));
-  };
-  const getCarrito = () => {
-    let newCarrito = JSON.parse(localStorage.getItem("perfil"));
+    const newCarrito = [...carrito, newProdutos];
     setCarrito(newCarrito);
+    console.log(newCarrito);
+    localStorage.setItem("carritoStorage", JSON.stringify(newCarrito));
   };
 
   const eliminarDeCarrito = (index) => {
     const newCarrito = [...carrito];
     newCarrito.splice(index, 1);
     setCarrito(newCarrito);
+    localStorage.setItem("carritoStorage", JSON.stringify(newCarrito));
   };
-  const limpiarCarrito = () => setCarrito([]);
+  const limpiarCarrito = () => {
+    setCarrito([]);
+    localStorage.setItem("carritoStorage", JSON.stringify([]));
+  };
+
+  useEffect(() => {
+    const carritoStorage = JSON.parse(localStorage.getItem("carritoStorage"));
+    if (carritoStorage) {
+      // saveCarrito(carritoStorage);
+      saveCarrito(carritoStorage);
+    } else {
+      localStorage.setItem("carritoStorage", JSON.stringify([carrito]));
+      saveCarrito("VACIO");
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   //! 6.- Retornamos el componente
   return (
@@ -33,8 +47,6 @@ const ProductProvider = ({ children }) => {
         productos,
         carrito,
         guardarProductos,
-        guardarCarrito,
-        getCarrito,
         agregarACarrito,
         eliminarDeCarrito,
         limpiarCarrito,
