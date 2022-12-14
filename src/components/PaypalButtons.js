@@ -3,7 +3,7 @@ import { usePayPalScriptReducer, PayPalButtons } from "@paypal/react-paypal-js";
 import { ProductContext } from "../context/Product.context";
 import { guardarVenta } from "../services/venta";
 
-const PaypalButtons = ({ currency, amount, peliculas }) => {
+const PaypalButtons = ({ currency, amount, productos }) => {
   const style = { layout: "vertical" };
   const [{ options, isPending }, dispatch] = usePayPalScriptReducer();
   const { limpiarCarrito } = useContext(ProductContext);
@@ -11,7 +11,7 @@ const PaypalButtons = ({ currency, amount, peliculas }) => {
   const ventaHandler = async () => {
     const infoPedido = {
       total: amount,
-      productos: peliculas.map((pelicula) => pelicula._id),
+      productos: productos.map((producto) => producto._id),
     };
     console.log(infoPedido);
     await guardarVenta(infoPedido);

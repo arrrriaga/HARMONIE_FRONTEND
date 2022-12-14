@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const path = `${process.env.REACT_APP_URI_API}/venta`;
+const path = `${process.env.REACT_APP_URI_API}/product/venta`;
 
 export const guardarVenta = async (datosVenta) => {
   try {

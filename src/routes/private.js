@@ -1,8 +1,14 @@
-import CartPage from "../pages/cartPage";
 import LogoutPage from "../pages/LogoutPage";
+import CartPage from "../pages/CartPage";
+import ProductosPage from "../pages/ProductosPage";
 
 export const privateRoutes = [
   { path: "/", title: "Private Home", element: <h1>Private Home</h1> },
+  {
+    path: "/products",
+    title: "Productos",
+    element: <ProductosPage />,
+  },
   {
     path: "/new-product",
     title: "Agregar producto",
@@ -14,6 +20,10 @@ export const privateRoutes = [
     //title: "Profile user", //!No quiero que se renderice en map, entonces no le pongo titulo
     element: <h1>Profile user</h1>,
   },
-  { path: "/cart", title: "Carrito", element: <CartPage /> },
+  {
+    path: "/carrito",
+    title: "Carrito",
+    element: <CartPage />,
+  },
   { path: "/logout", title: "Logout", element: <LogoutPage /> },
 ];

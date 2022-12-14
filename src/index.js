@@ -6,15 +6,22 @@ import { BrowserRouter } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
 import { UserProvider } from "./context/User.context";
 import { ProductProvider } from "./context/Product.context";
+import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <UserProvider>
       <ProductProvider>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
+        <PayPalScriptProvider
+          options={{
+            "client-id": process.env.REACT_APP_PAYPAL_CLIENT_ID,
+          }}
+        >
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </PayPalScriptProvider>
       </ProductProvider>
     </UserProvider>
   </React.StrictMode>
