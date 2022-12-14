@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { Container } from "react-bootstrap";
+import { Navigate, Route, Routes } from "react-router-dom";
+import NavComponent from "./components/Nav";
+import { useContext } from "react";
+import { UserContext } from "./context/User.context";
+import { privateRoutes, publicRoutes } from "./routes";
 
 function App() {
+  const { token } = useContext(UserContext);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    //No funciona
+    <>
+      <NavComponent />
+      <Container>
+        <Routes>
+          {(token ? privateRoutes : publicRoutes).map((route, index) => (
+            <Route key={index} {...route} />
+          ))}
+          {token !== undefined && (
+            <Route path="*" element={<Navigate to="/" />} />
+          )}
+        </Routes>
+      </Container>
+    </>
   );
 }
 
