@@ -1,4 +1,4 @@
-import { useState, createContext } from "react";
+import { useState, createContext, useEffect } from "react";
 
 const ProductContext = createContext();
 const { Provider } = ProductContext;
@@ -8,8 +8,17 @@ const ProductProvider = ({ children }) => {
   const [carrito, setCarrito] = useState([]);
 
   const guardarProductos = (newProdutos) => setProductos(newProdutos);
-  const agregarACarrito = (newProdutos) =>
+  const agregarACarrito = (newProdutos) => {
     setCarrito([...carrito, newProdutos]);
+  };
+  const guardarCarrito = () => {
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+  };
+  const getCarrito = () => {
+    let newCarrito = JSON.parse(localStorage.getItem("perfil"));
+    setCarrito(newCarrito);
+  };
+
   const eliminarDeCarrito = (index) => {
     const newCarrito = [...carrito];
     newCarrito.splice(index, 1);
@@ -24,6 +33,8 @@ const ProductProvider = ({ children }) => {
         productos,
         carrito,
         guardarProductos,
+        guardarCarrito,
+        getCarrito,
         agregarACarrito,
         eliminarDeCarrito,
         limpiarCarrito,

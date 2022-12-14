@@ -6,8 +6,14 @@ import "./style.css";
 
 const ProductosPage = () => {
   const columns = 4;
-  const { productos, carrito, guardarProductos, agregarACarrito } =
-    useContext(ProductContext);
+  const {
+    productos,
+    carrito,
+    guardarProductos,
+    guardarCarrito,
+
+    agregarACarrito,
+  } = useContext(ProductContext);
 
   const getProductos = async () => {
     const { detalles } = await verProductos();
@@ -16,6 +22,7 @@ const ProductosPage = () => {
 
   useEffect(() => {
     getProductos();
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
@@ -37,14 +44,12 @@ const ProductosPage = () => {
             <h5>${producto.price}</h5>
             <Button
               onClick={() => {
-                agregarACarrito(
-                  {
-                    nombre: producto.nombre + producto.ml,
-                    price: producto.price,
-                    _id: producto._id,
-                  },
-                  console.log(carrito)
-                );
+                agregarACarrito({
+                  nombre: producto.nombre + producto.ml,
+                  price: producto.price,
+                  _id: producto._id,
+                });
+                guardarCarrito(carrito);
               }}
             >
               Add to cart
