@@ -1,6 +1,8 @@
 import LogoutPage from "../pages/LogoutPage";
-import CartPage from "../pages/CartPage";
+import CartPage from "../pages/cartPage";
 import ProductosPage from "../pages/ProductosPage";
+import AgregarProductoPage from "../pages/AgregarProductoPage";
+import ProfilePage from "../pages/ProfilePage";
 
 export const privateRoutes = [
   { path: "/", title: "Private Home", element: <h1>Private Home</h1> },
@@ -12,7 +14,7 @@ export const privateRoutes = [
   {
     path: "/new-product",
     title: "Agregar producto",
-    element: <h1>New product</h1>,
+    element: <AgregarProductoPage />,
   },
   { path: "/profile", title: "Profile", element: <h1>Profile</h1> },
   {
