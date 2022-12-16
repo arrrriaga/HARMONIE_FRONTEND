@@ -3,16 +3,14 @@ import { ProductContext } from "../../context/Product.context";
 import { verProductos } from "../../services";
 import { Card, Button, Row } from "react-bootstrap";
 import "./style.css";
+import { UserContext } from "../../context/User.context";
 
 const ProductosPage = () => {
   const columns = 4;
-  const {
-    productos,
-    carrito,
-    guardarProductos,
+  const { productos, guardarProductos, agregarACarrito } =
+    useContext(ProductContext);
 
-    agregarACarrito,
-  } = useContext(ProductContext);
+  const { tipo } = useContext(UserContext);
 
   const getProductos = async () => {
     const { detalles } = await verProductos();
@@ -41,17 +39,31 @@ const ProductosPage = () => {
           </Card.Body>
           <Card.Footer>
             <h5>${producto.price}</h5>
-            <Button
-              onClick={() => {
-                agregarACarrito({
-                  nombre: producto.nombre + producto.ml,
-                  price: producto.price,
-                  _id: producto._id,
-                });
-              }}
-            >
-              Add to cart
-            </Button>
+            {tipo === "admin" ? (
+              <Button
+                onClick={() => {
+                  agregarACarrito({
+                    nombre: producto.nombre + producto.ml,
+                    price: producto.price,
+                    _id: producto._id,
+                  });
+                }}
+              >
+                Actualizar producto
+              </Button>
+            ) : (
+              <Button
+                onClick={() => {
+                  agregarACarrito({
+                    nombre: producto.nombre + producto.ml,
+                    price: producto.price,
+                    _id: producto._id,
+                  });
+                }}
+              >
+                Add to cart
+              </Button>
+            )}
           </Card.Footer>
         </Card>
       ))}
