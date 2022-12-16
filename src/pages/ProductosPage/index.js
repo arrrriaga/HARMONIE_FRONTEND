@@ -4,6 +4,7 @@ import { verProductos } from "../../services";
 import { Card, Button, Row } from "react-bootstrap";
 import "./style.css";
 import { UserContext } from "../../context/User.context";
+import { Link, NavLink } from "react-router-dom";
 
 const ProductosPage = () => {
   const columns = 4;
@@ -39,8 +40,12 @@ const ProductosPage = () => {
           </Card.Body>
           <Card.Footer>
             <h5>${producto.price}</h5>
+            <NavLink className="btn btn-info" to={`/products/detalles`}>
+              Ver mas...
+            </NavLink>
             {tipo === "admin" ? (
               <Button
+                variant="danger"
                 onClick={() => {
                   agregarACarrito({
                     nombre: producto.nombre + producto.ml,
@@ -49,10 +54,11 @@ const ProductosPage = () => {
                   });
                 }}
               >
-                Actualizar producto
+                Eliminar producto
               </Button>
             ) : (
               <Button
+                variant="success"
                 onClick={() => {
                   agregarACarrito({
                     nombre: producto.nombre + producto.ml,

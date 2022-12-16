@@ -3,12 +3,18 @@ import CartPage from "../pages/cartPage";
 import ProductosPage from "../pages/ProductosPage";
 import AgregarProductoPage from "../pages/AgregarProductoPage";
 import ProfilePage from "../pages/ProfilePage";
+import VerProductoPage from "../pages/ProductosPage/VerProductoPage";
 
 const privateRoutes = [
   {
     path: "/products",
     title: "Productos",
     element: <ProductosPage />,
+  },
+  {
+    path: "/products/detalles",
+    // title: "detalles", //! No se renderiza en NAV
+    element: <VerProductoPage />,
   },
   { path: "/profile", title: "Profile", element: <ProfilePage /> },
   { path: "/logout", title: "Logout", element: <LogoutPage /> },

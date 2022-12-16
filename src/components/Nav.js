@@ -23,7 +23,7 @@ const NavComponent = () => {
               .filter((route) => route.title)
               .map((route, index) => (
                 <Nav.Link as={Link} to={route.path} key={index}>
-                  {route.title}
+                  {route?.title}
                 </Nav.Link>
               ))}
           </Nav>

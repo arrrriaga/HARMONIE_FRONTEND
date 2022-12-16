@@ -21,7 +21,9 @@ function App() {
           ).map((route, index) => (
             <Route key={index} {...route} />
           ))}
-          <Route path="*" element={<Navigate to="/" />} />
+          {token !== undefined && (
+            <Route path="*" element={<Navigate to="/" />} />
+          )}
         </Routes>
       </Container>
     </>
