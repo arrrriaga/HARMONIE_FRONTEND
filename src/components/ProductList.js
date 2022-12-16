@@ -20,7 +20,7 @@ const ProductList = ({ productos, total }) => {
             <tr key={index}>
               <td>{index + 1}</td>
               <td>{producto.nombre}</td>
-              <td>${producto.price.toFixed(2)}</td>
+              <td>${producto.price}</td>
               <td>
                 <Button
                   variant="danger"
@@ -33,7 +33,7 @@ const ProductList = ({ productos, total }) => {
           ))}
           <tr>
             <th colSpan={2}>Total</th>
-            <td>${total.toFixed(2)}</td>
+            <td>${total}</td>
           </tr>
         </tbody>
       </Table>

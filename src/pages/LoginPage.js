@@ -11,7 +11,7 @@ const LoginPage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
 
-  const { saveToken, saveUserId } = useContext(UserContext);
+  const { saveTipo, saveToken, saveUserId } = useContext(UserContext);
 
   const onSubmited = async (event) => {
     event.preventDefault();
@@ -19,13 +19,14 @@ const LoginPage = () => {
     setIsLoading(true);
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
-    const { token, userId, error } = await loginSignUp(serviceType, data);
+    const { tipo, token, userId, error } = await loginSignUp(serviceType, data);
 
     if (error) {
       setErrorMessage(error);
     } else {
       saveToken(token);
       saveUserId(userId);
+      saveTipo(tipo);
       event.target.reset();
     }
     setIsLoading(false);

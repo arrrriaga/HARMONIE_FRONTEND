@@ -1,2 +1,2 @@
 export { publicRoutes } from "./public";
-export { privateRoutes } from "./private";
+export { clienteRoutes, adminRoutes } from "./private";
