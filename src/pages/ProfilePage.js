@@ -1,14 +1,7 @@
-// import { useParams } from "react-router-dom";
-// import MyProfileComponent from "../components/MyProfileComponent";
-// import ProfileComponent from "../components/ProfileComponent";
+import MyProfileComponent from "../components/MyProfileComponent";
 
-// const ProfilePage = () => {
-//   const { username } = useParams();
-//   return username ? (
-//     <ProfileComponent username={username} />
-//   ) : (
-//     <MyProfileComponent />
-//   );
-// };
+const ProfilePage = () => {
+  return <MyProfileComponent />;
+};
 
-// export default ProfilePage;
+export default ProfilePage;

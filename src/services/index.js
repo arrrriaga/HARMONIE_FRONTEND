@@ -1,4 +1,4 @@
 export { verProductos, nuevoProducto, verMisProductos } from "./product";
 
 export { loginSignUp } from "./auth";
-// export { getMyData, getUserData } from "./user";
+export { getMyData } from "./user";

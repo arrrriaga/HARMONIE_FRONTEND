@@ -16,7 +16,7 @@ export const privateRoutes = [
     title: "Agregar producto",
     element: <AgregarProductoPage />,
   },
-  { path: "/profile", title: "Profile", element: <h1>Profile</h1> },
+  { path: "/profile", title: "Profile", element: <ProfilePage /> },
   {
     path: "/profile/username",
     //title: "Profile user", //!No quiero que se renderice en map, entonces no le pongo titulo
