@@ -15,6 +15,20 @@ export const verProductos = async () => {
   }
 };
 
+export const verOneProduct = async (id) => {
+  try {
+    const { data } = await axios.get(`${path}/getOne/${id}`, {
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("token"),
+      },
+    });
+    console.log(data);
+    return data;
+  } catch (e) {
+    return { error: e.response.data.detalles };
+  }
+};
+
 export const nuevoProducto = async (pelicula) => {
   try {
     const { data } = await axios.post(path, pelicula, {

@@ -4,7 +4,7 @@ import { verProductos } from "../../services";
 import { Card, Button, Row } from "react-bootstrap";
 import "./style.css";
 import { UserContext } from "../../context/User.context";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const ProductosPage = () => {
   const columns = 4;
@@ -40,7 +40,10 @@ const ProductosPage = () => {
           </Card.Body>
           <Card.Footer>
             <h5>${producto.price}</h5>
-            <NavLink className="btn btn-info" to={`/products/detalles`}>
+            <NavLink
+              className="btn btn-info"
+              to={`/products/detalles/${producto._id}`}
+            >
               Ver mas...
             </NavLink>
             {tipo === "admin" ? (

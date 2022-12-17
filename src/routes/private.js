@@ -12,7 +12,7 @@ const privateRoutes = [
     element: <ProductosPage />,
   },
   {
-    path: "/products/detalles",
+    path: "/products/detalles/:id",
     // title: "detalles", //! No se renderiza en NAV
     element: <VerProductoPage />,
   },
