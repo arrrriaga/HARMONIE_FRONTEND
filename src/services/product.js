@@ -17,13 +17,13 @@ export const verProductos = async () => {
 
 export const verOneProduct = async (id) => {
   try {
-    const { data } = await axios.get(`${path}/getOne/${id}`, {
+    const resp = await axios.get(`${path}/getOne/${id}`, {
       headers: {
         Authorization: "Bearer " + localStorage.getItem("token"),
       },
     });
-    console.log(data);
-    return data;
+
+    return resp;
   } catch (e) {
     return { error: e.response.data.detalles };
   }

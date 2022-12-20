@@ -5,6 +5,7 @@ const { Provider } = ProductContext;
 
 const ProductProvider = ({ children }) => {
   const [productos, setProductos] = useState([]);
+  const [producto, setProducto] = useState({});
   const [carrito, setCarrito] = useState([]);
 
   // const saveCarrito = (carritoStorage) => setCarrito(carritoStorage);
@@ -45,6 +46,8 @@ const ProductProvider = ({ children }) => {
     <Provider
       value={{
         productos,
+        producto,
+        setProducto,
         carrito,
         guardarProductos,
         agregarACarrito,

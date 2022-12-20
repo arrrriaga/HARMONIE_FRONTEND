@@ -1,35 +1,29 @@
-import { Card, Row } from "react-bootstrap";
+import { Button, Card, Row } from "react-bootstrap";
 import React, { useEffect, useState } from "react";
 import { verOneProduct } from "../../services/product";
 import { useParams } from "react-router-dom";
+import { useContext } from "react";
+import { ProductContext } from "../../context/Product.context";
 
 const VerProductoPage = () => {
-  const [producto, setProducto] = useState(undefined);
+  const { producto, setProducto } = useContext(ProductContext);
   const idParams = useParams().id;
 
   useEffect(() => {
-    setProducto(verOneProduct(idParams));
-    console.log(producto);
+    const obtenerProducto = async () => {
+      const { data } = await verOneProduct(idParams);
+
+      setProducto(data.detalles);
+      console.log(producto);
+    };
+    obtenerProducto();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
-    // <Row>
-    //   {
-    //     <Card style={{ margin: "15px" }}>
-    //       <Card.Img className="imgCard" variant="top" src={producto.img} />
-    //       <Card.Body>
-    //         <Card.Title>
-    //           {producto.nombre} {producto.ml}
-    //         </Card.Title>
-    //         <Card.Text>{producto.description}</Card.Text>
-    //       </Card.Body>
-    //       <Card.Footer>
-    //         <h5>${producto.price}</h5>
-    //       </Card.Footer>
-    //     </Card>
-    //   }
-    // </Row>
-    <h1>Producto one</h1>
+    <Row>
+      <h1>Producto</h1>
+      <h1>{producto.nombre}</h1>
+    </Row>
   );
 };
 
