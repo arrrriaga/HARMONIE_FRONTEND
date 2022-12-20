@@ -60,6 +60,21 @@ const RegisterPage = () => {
         <Form.Control type="password" placeholder="Password" name="password" />
       </Form.Group>
 
+      <Form.Group className="mb-3" controlId="ciudad">
+        <Form.Label>Ciudad</Form.Label>
+        <Form.Control type="text" placeholder="Ciudad" name="ciudad" />
+      </Form.Group>
+
+      <Form.Group className="mb-3" controlId="adress">
+        <Form.Label>Dirección de envío</Form.Label>
+        <Form.Control type="text" placeholder="Dirección" name="adress" />
+      </Form.Group>
+
+      <Form.Group className="mb-3" controlId="CP">
+        <Form.Label>Código postal</Form.Label>
+        <Form.Control type="number" placeholder="Código postal" name="CP" />
+      </Form.Group>
+
       <label style={{ color: "red" }}>{errorMessage}</label>
       <br />
       <Button variant="primary" type="submit">

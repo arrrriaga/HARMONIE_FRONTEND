@@ -105,7 +105,7 @@ const ActualizarProductoPage = () => {
         to={`/products/detalles/${producto._id}`}
         type="submit"
       >
-        cancelar
+        Regresar
       </NavLink>
     </Form>
   );

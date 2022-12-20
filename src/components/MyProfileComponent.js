@@ -38,6 +38,13 @@ const MyProfileComponent = () => {
           Edad: {userInfo?.edad}
           <br />
           Correo: {userInfo?.correo}
+          <Card.Footer>
+            Ciudad: {userInfo?.ciudad}
+            <br />
+            Dirección: {userInfo?.adress}
+            <br />
+            CP: {userInfo?.CP}
+          </Card.Footer>
         </Card.Text>
       </Card.Body>
     </Card>

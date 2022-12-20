@@ -55,6 +55,13 @@ const VerProductoPage = () => {
                 Add to cart
               </Button>
             )}
+            <NavLink
+              className="btn btn-secondary"
+              to={`/products`}
+              type="submit"
+            >
+              Regresar
+            </NavLink>
           </Card.Footer>
         </Card.Body>
       </Card>
