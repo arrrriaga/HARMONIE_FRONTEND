@@ -1,31 +1,28 @@
 import { useContext, useEffect, useState } from "react";
 import { Button, Form, Image } from "react-bootstrap";
-import { nuevoProducto } from "../../services";
+import { actualizarProducto } from "../../services";
 import Loader from "../../components/Loader";
-import { actualizarProducto } from "../../services/product";
 import "./style.css";
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import { ProductContext } from "../../context/Product.context";
 
 const ActualizarProductoPage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
   const [imageSrc, setImageSrc] = useState("");
-  const { producto, setProducto } = useContext(ProductContext);
-  const idParams = useParams().id;
+  const { producto } = useContext(ProductContext);
+  const productID = useParams().id;
 
   console.log(producto);
   const onSubmited = async (event) => {
     event.preventDefault();
     setIsLoading(true);
     const formData = new FormData(event.target);
-    const data = Object.fromEntries(formData);
-    const { error } = await nuevoProducto(data);
-    if (error) {
-      setErrorMessage(error);
-    }
+    const productData = Object.fromEntries(formData);
+    await actualizarProducto(productID, productData);
     setIsLoading(false);
     setImageSrc("");
+    alert("Producto actualizado, puede tardar un poco en visualizar el cambio");
   };
 
   const imageChanged = (event) => setImageSrc(event.target.value);
@@ -99,9 +96,17 @@ const ActualizarProductoPage = () => {
       </Form.Group>
       <label style={{ color: "red" }}>{errorMessage}</label>
       <br />
+
       <Button variant="primary" type="submit">
-        Guardar Producto
+        Guardar Producto actualizado
       </Button>
+      <NavLink
+        className="btn btn-secondary"
+        to={`/products/detalles/${producto._id}`}
+        type="submit"
+      >
+        cancelar
+      </NavLink>
     </Form>
   );
 };

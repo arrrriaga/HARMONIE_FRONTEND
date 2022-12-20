@@ -57,10 +57,13 @@ export const verMisProductos = async () => {
 
 export const actualizarProducto = async (productID, productData) => {
   try {
-    const { newData } = axios.put(`${path}/${productID}`, productData, {
-      Authorization: "Bearer " + localStorage.getItem("token"),
+    const { data } = await axios.put(`${path}/${productID}`, productData, {
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("token"),
+      },
     });
-    return newData;
+
+    return data;
   } catch (e) {
     return { error: e.response.data.detalles };
   }
