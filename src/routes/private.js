@@ -5,14 +5,15 @@ import AgregarProductoPage from "../pages/AgregarProductoPage";
 import ProfilePage from "../pages/ProfilePage";
 import VerProductoPage from "../pages/ProductosPage/VerProductoPage";
 import ActualizarProductoPage from "../pages/ProductosPage/ActualizarProductoPage";
-import { Navigate } from "react-router-dom";
+
 import PagosPage from "../pages/PagosPage";
+import LandingPage from "../pages/LandingPage";
 
 const privateRoutes = [
   {
     path: "/",
-    // title: "Private Home",
-    element: <Navigate to="/products" />,
+    title: "Home",
+    element: <LandingPage />,
   },
   {
     path: "/products",

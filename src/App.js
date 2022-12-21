@@ -13,7 +13,7 @@ function App() {
     <>
       <NavComponent />
       <main>
-        <Container>
+        <Container fluid>
           <Routes>
             {(token
               ? tipo === "admin"
