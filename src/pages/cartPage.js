@@ -4,6 +4,7 @@ import ProductList from "../components/ProductList";
 import { useContext } from "react";
 import { ProductContext } from "../context/Product.context";
 import VACIO from "../Images/VACIO.png";
+import { NavLink } from "react-router-dom";
 
 const CartPage = () => {
   const { carrito } = useContext(ProductContext);
@@ -19,11 +20,22 @@ const CartPage = () => {
           <img src={VACIO} alt="Carrito Vacío" height={300}></img>
         </Col>
       </Row>
-      <Row className="text-center mb-3">
+      <Row className="text-center ">
         <h2>
-          ¡Oops! Parece que aún no has añadido nada a tu carrito. Continua
-          comprando para agregar productos a tu carrito
+          ¡Oops! Parece que aún no has añadido nada a tu carrito. Continúa
+          comprando para agregar productos a tu carrito.
         </h2>
+      </Row>
+      <Row>
+        <Col className="d-flex justify-content-center mt-3">
+          <NavLink
+            className="btn btn-success mb-3"
+            to={`/products`}
+            type="submit"
+          >
+            Regresar a ver nuestros (increibles) productos
+          </NavLink>
+        </Col>
       </Row>
     </Container>
   ) : (
