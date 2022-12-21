@@ -2,18 +2,23 @@ import { useContext } from "react";
 import { Nav, Navbar, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { UserContext } from "../context/User.context";
+import "./style.css";
+import TLALLI from "../Images/TLALLI.png";
 import { clienteRoutes, adminRoutes, publicRoutes } from "../routes";
 
 const NavComponent = () => {
   const { tipo, token } = useContext(UserContext);
 
   return (
-    <Navbar bg="light" expand="sm">
+    <Navbar className="NAV" variant="dark" expand="sm">
       <Container>
-        <Navbar.Brand href="/">TLALLI</Navbar.Brand>
+        <Navbar.Brand href="/">
+          {" "}
+          <img src={TLALLI} alt="TLALLI" height={50}></img>{" "}
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
+          <Nav className="ms-auto">
             {(token
               ? tipo === "admin"
                 ? adminRoutes

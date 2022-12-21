@@ -5,8 +5,14 @@ import AgregarProductoPage from "../pages/AgregarProductoPage";
 import ProfilePage from "../pages/ProfilePage";
 import VerProductoPage from "../pages/ProductosPage/VerProductoPage";
 import ActualizarProductoPage from "../pages/ProductosPage/ActualizarProductoPage";
+import { Navigate } from "react-router-dom";
 
 const privateRoutes = [
+  {
+    path: "/",
+    // title: "Private Home",
+    element: <Navigate to="/products" />,
+  },
   {
     path: "/products",
     title: "Productos",
@@ -27,17 +33,15 @@ const privateRoutes = [
 ];
 
 const clienteRoutes = [
-  { path: "/", title: "Private Home", element: <h1>Private Home</h1> },
+  ...privateRoutes,
 
   {
     path: "/carrito",
-    title: "Carrito",
+    title: <i className="fas fa-shopping-cart">CARRITO</i>,
     element: <CartPage />,
   },
-  ...privateRoutes,
 ];
 const adminRoutes = [
-  { path: "/", title: "Private Home", element: <h1>Private Home</h1> },
   {
     path: "/new-product",
     title: "Agregar producto",

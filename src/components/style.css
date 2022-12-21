@@ -1,10 +1,6 @@
-.footer {
-  margin-top: 1rem;
-  padding: 1rem;
-  background-color: rgb(119, 150, 114);
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  color: rgb(217, 197, 84);
+.NAV {
+  background-color: #6ab775;
+}
+footer {
+  background-color: #6ab775;
 }
