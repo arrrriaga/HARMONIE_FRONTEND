@@ -36,7 +36,7 @@ const LoginPage = () => {
   ) : (
     <Container>
       <Row className="d-flex justify-content-center mt-3">
-        <Col md="6">
+        <Col md={6}>
           <Form onSubmit={onSubmited}>
             <Row className="text-center">
               <Form.Group className="mb-3" controlId="correo">
@@ -68,7 +68,7 @@ const LoginPage = () => {
             <Row className="text-center">
               <br />
               <p>
-                You do not have an account? <Link to="/register">Sign up</Link>
+                ¿Aún no tienes una cuenta? <Link to="/register">Sign up</Link>
               </p>
             </Row>
           </Form>

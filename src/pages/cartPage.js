@@ -12,7 +12,7 @@ const CartPage = () => {
   }, 0);
 
   return !carrito.length ? (
-    <h1>No hay películas, agrega una.</h1>
+    <h1>No hay productos, agrega uno.</h1>
   ) : (
     <Row>
       <Col>
