@@ -1,5 +1,5 @@
 import { Col, Container, Row } from "react-bootstrap";
-import PaypalButtons from "../components/PaypalButtons";
+
 import ProductList from "../components/ProductList";
 import { useContext } from "react";
 import { ProductContext } from "../context/Product.context";
@@ -44,7 +44,9 @@ const CartPage = () => {
         <ProductList productos={carrito} total={total} />
       </Col>
       <Col>
-        <PaypalButtons productos={carrito} currency="MXN" amount={total} />
+        <NavLink className="btn btn-info" to={`/pagos`}>
+          <i className="fa-sharp fa-solid fa-angles-right">Proceder al pago</i>
+        </NavLink>
       </Col>
     </Row>
   );

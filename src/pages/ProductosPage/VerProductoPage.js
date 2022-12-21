@@ -49,7 +49,7 @@ const VerProductoPage = () => {
                       className="btn btn-info"
                       to={`/products/actualizar/${producto._id}`}
                     >
-                      Actualizar producto
+                      Actualizar producto <i className="fa-solid fa-pencil"></i>
                     </NavLink>
                   ) : (
                     <Button
@@ -62,7 +62,7 @@ const VerProductoPage = () => {
                         });
                       }}
                     >
-                      Add to cart
+                      Add to <i className="fas fa-shopping-cart"></i>,
                     </Button>
                   )}
                   <NavLink
@@ -70,7 +70,7 @@ const VerProductoPage = () => {
                     to={`/products`}
                     type="submit"
                   >
-                    Regresar
+                    Regresar <i class="fa-solid fa-angles-left"></i>
                   </NavLink>
                 </Card.Footer>
               </Card.Body>

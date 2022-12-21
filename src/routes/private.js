@@ -6,6 +6,7 @@ import ProfilePage from "../pages/ProfilePage";
 import VerProductoPage from "../pages/ProductosPage/VerProductoPage";
 import ActualizarProductoPage from "../pages/ProductosPage/ActualizarProductoPage";
 import { Navigate } from "react-router-dom";
+import PagosPage from "../pages/PagosPage";
 
 const privateRoutes = [
   {
@@ -40,6 +41,11 @@ const clienteRoutes = [
     title: <i className="fas fa-shopping-cart">CARRITO</i>,
     element: <CartPage />,
   },
+  {
+    path: "/pagos",
+    // title: "Pagar con Paypal",
+    element: <PagosPage />,
+  },
 ];
 const adminRoutes = [
   {
@@ -47,6 +53,7 @@ const adminRoutes = [
     title: "Agregar producto",
     element: <AgregarProductoPage />,
   },
+
   ...privateRoutes,
 ];
 

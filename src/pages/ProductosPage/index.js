@@ -5,7 +5,6 @@ import { Card, Button, Row, Col, CardGroup } from "react-bootstrap";
 import "./style.css";
 import { UserContext } from "../../context/User.context";
 import { NavLink } from "react-router-dom";
-import Swal from "sweetalert2";
 
 const ProductosPage = () => {
   const Swal = require("sweetalert2");
@@ -113,13 +112,15 @@ const ProductosPage = () => {
                             variant="success"
                             onClick={() => {
                               agregarACarrito({
-                                nombre: producto.nombre + producto.ml,
+                                nombre: producto.nombre + " " + producto.ml,
                                 price: producto.price,
                                 _id: producto._id,
                               });
                             }}
                           >
-                            Add to cart
+                            <i class="fa-solid fa-plus">
+                              to <i className="fas fa-shopping-cart"></i>
+                            </i>
                           </Button>
                         )}
                       </Col>

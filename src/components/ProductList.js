@@ -1,12 +1,13 @@
 import { useContext } from "react";
 import { Button, Table } from "react-bootstrap";
 import { ProductContext } from "../context/Product.context";
+import "./style.css";
 
 const ProductList = ({ productos, total }) => {
   const { eliminarDeCarrito, limpiarCarrito } = useContext(ProductContext);
   return (
     <>
-      <Table striped bordered hover size="sm">
+      <Table className="table table-hover ">
         <thead>
           <tr>
             <th>#</th>
@@ -34,12 +35,14 @@ const ProductList = ({ productos, total }) => {
           <tr>
             <th colSpan={2}>Total</th>
             <td>${total}</td>
+            <td>
+              <Button variant="danger" onClick={() => limpiarCarrito()}>
+                Vaciar carrito <i class="fa-solid fa-eraser"></i>
+              </Button>
+            </td>
           </tr>
         </tbody>
       </Table>
-      <Button variant="danger" onClick={() => limpiarCarrito()}>
-        Vaciar carrito
-      </Button>
     </>
   );
 };
