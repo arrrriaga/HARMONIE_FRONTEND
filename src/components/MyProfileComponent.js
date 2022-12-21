@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { getMyData } from "../services";
 import Loader from "../components/Loader";
-import { Card, Col, Container, Row } from "react-bootstrap";
+import { Card, Col, Row } from "react-bootstrap";
 
 const MyProfileComponent = () => {
   const [isLoading, setIsLoading] = useState(true);

@@ -105,8 +105,8 @@ const ActualizarProductoPage = () => {
               <Col className="d-flex justify-content-center">
                 {imageSrc !== "" && (
                   <Image
-                    className="imgCard"
                     src={imageSrc}
+                    style={{ height: "200px" }}
                     alt="Error, imagen no soportada."
                     thumbnail
                   />
