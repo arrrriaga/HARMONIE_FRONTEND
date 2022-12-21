@@ -69,10 +69,12 @@ export const actualizarProducto = async (productID, productData) => {
   }
 };
 
-export const eliminarProducto = async (productID, productData) => {
+export const eliminarProducto = async (productID) => {
   try {
     const { data } = axios.delete(`${path}/${productID}`, {
-      Authorization: "Bearer " + localStorage.getItem("token"),
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("token"),
+      },
     });
     return data;
   } catch (e) {

@@ -1,13 +1,14 @@
 import { useEffect, useContext } from "react";
 import { ProductContext } from "../../context/Product.context";
-import { verProductos } from "../../services";
+import { eliminarProducto, verProductos } from "../../services";
 import { Card, Button, Row, Col, CardGroup } from "react-bootstrap";
 import "./style.css";
 import { UserContext } from "../../context/User.context";
 import { NavLink } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Swal from "sweetalert2";
 
 const ProductosPage = () => {
+  const Swal = require("sweetalert2");
   const { productos, guardarProductos, agregarACarrito } =
     useContext(ProductContext);
 
@@ -22,7 +23,7 @@ const ProductosPage = () => {
     getProductos();
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [productos]);
   return (
     <CardGroup className="my-5">
       <Row xs={1} xl={3} className="g-4">
@@ -65,7 +66,7 @@ const ProductosPage = () => {
                             className="btn btn-info"
                             to={`/products/detalles/${producto._id}`}
                           >
-                            <i class="fa-sharp fa-solid fa-angles-right">
+                            <i className="fa-sharp fa-solid fa-angles-right">
                               Ver detalles
                             </i>
                           </NavLink>
@@ -77,17 +78,32 @@ const ProductosPage = () => {
                           <Button
                             variant="link"
                             onClick={() => {
-                              // agregarACarrito({
-                              //   nombre: producto.nombre + producto.ml,
-                              //   price: producto.price,
-                              //   _id: producto._id,
-                              // });
-                              console.log("Borrar");
+                              Swal.fire({
+                                title:
+                                  "¿Estás seguro que quieres eliminar este producto?",
+                                text: "¡No podrás revertir este cambio!",
+                                icon: "warning",
+                                showCancelButton: true,
+                                confirmButtonColor: "#c6a510",
+                                cancelButtonColor: "#d33",
+                                confirmButtonText: "Sí ¡ya no lo quiero!",
+                              }).then((result) => {
+                                if (result.isConfirmed) {
+                                  Swal.fire(
+                                    {
+                                      title: "¡Borrado!",
+                                      text: `El producto ${producto.nombre} fue borrado, puede que tarde unos segundos en desaparecer.`,
+                                      icon: "success",
+                                    },
+                                    eliminarProducto(producto._id)
+                                  );
+                                }
+                              });
                             }}
                           >
                             <i
                               style={{ color: "red" }}
-                              class="fa-sharp fa-solid fa-trash fa-2xl"
+                              className="fa-sharp fa-solid fa-trash fa-2xl"
                             >
                               {" "}
                             </i>
