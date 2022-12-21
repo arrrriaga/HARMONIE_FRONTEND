@@ -10,22 +10,22 @@ const FooterComponent = () => {
         <Row className="py-3">
           <Col>
             <Link>
-              <i class="fa-2x fa-brands fa-facebook"></i>
+              <i className="fa-2x fa-brands fa-facebook"></i>
             </Link>
           </Col>
           <Col>
             <Link>
-              <i class="fa-2x fa-brands fa-instagram"></i>
+              <i className="fa-2x fa-brands fa-instagram"></i>
             </Link>
           </Col>
           <Col>
             <Link>
-              <i class="fa-2x fa-brands fa-twitter"></i>
+              <i className="fa-2x fa-brands fa-twitter"></i>
             </Link>
           </Col>
           <Col>
             <Link>
-              <i class="fa-2x fa-brands fa-tiktok"></i>
+              <i className="fa-2x fa-brands fa-tiktok"></i>
             </Link>
           </Col>
         </Row>

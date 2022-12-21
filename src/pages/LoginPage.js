@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { useState } from "react";
-import { Button, Form } from "react-bootstrap";
+import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { loginSignUp } from "../services";
 import Loader from "../components/Loader";
 import { UserContext } from "../context/User.context";
@@ -34,27 +34,47 @@ const LoginPage = () => {
   return isLoading ? (
     <Loader />
   ) : (
-    <Form onSubmit={onSubmited}>
-      <Form.Group className="mb-3" controlId="correo">
-        <Form.Label>Correo</Form.Label>
-        <Form.Control type="text" placeholder="Correo" name="correo" />
-      </Form.Group>
+    <Container>
+      <Row className="d-flex justify-content-center mt-3">
+        <Col md="6">
+          <Form onSubmit={onSubmited}>
+            <Row className="text-center">
+              <Form.Group className="mb-3" controlId="correo">
+                <Form.Label>
+                  <h3>Correo</h3>
+                </Form.Label>
+                <Form.Control type="text" placeholder="Correo" name="correo" />
+              </Form.Group>
 
-      <Form.Group className="mb-3" controlId="password">
-        <Form.Label>Password</Form.Label>
-        <Form.Control type="password" placeholder="Password" name="password" />
-      </Form.Group>
-
-      <label style={{ color: "red" }}>{errorMessage}</label>
-      <br />
-      <Button variant="primary" type="submit">
-        Login
-      </Button>
-      <br />
-      <p>
-        You do not have an account? <Link to="/register">Sign up</Link>
-      </p>
-    </Form>
+              <Form.Group className="mb-3" controlId="password">
+                <Form.Label>
+                  <h3>Contraseña</h3>
+                </Form.Label>
+                <Form.Control
+                  type="password"
+                  placeholder="Password"
+                  name="password"
+                />
+              </Form.Group>
+              <label style={{ color: "red" }}>{errorMessage}</label>
+            </Row>
+            <Row>
+              <Col className="d-flex justify-content-center mt-3">
+                <Button variant="primary" type="submit">
+                  Login
+                </Button>
+              </Col>
+            </Row>
+            <Row className="text-center">
+              <br />
+              <p>
+                You do not have an account? <Link to="/register">Sign up</Link>
+              </p>
+            </Row>
+          </Form>
+        </Col>
+      </Row>
+    </Container>
   );
 };
 
