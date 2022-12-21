@@ -25,7 +25,7 @@ const ProductosPage = () => {
   }, [productos]);
   return (
     <CardGroup className="my-5">
-      <Row xs={1} xl={3} className="g-4">
+      <Row xs={1} md={2} className="g-4">
         {productos.map((producto, index) => (
           <Card key={index} className="CARDS">
             <Col>
