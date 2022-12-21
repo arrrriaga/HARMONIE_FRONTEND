@@ -23,10 +23,10 @@ const ProductosPage = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
-    <CardGroup>
+    <CardGroup className="my-5">
       <Row xs={1} md={3} className="g-4">
         {productos.map((producto, index) => (
-          <Card key={index}>
+          <Card key={index} className="CARDS">
             <Card.Img className="imgCard" variant="top" src={producto.img} />
             <Card.Body>
               <Card.Title>
