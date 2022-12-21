@@ -1,8 +1,9 @@
-import { Col, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import PaypalButtons from "../components/PaypalButtons";
 import ProductList from "../components/ProductList";
 import { useContext } from "react";
 import { ProductContext } from "../context/Product.context";
+import VACIO from "../Images/VACIO.png";
 
 const CartPage = () => {
   const { carrito } = useContext(ProductContext);
@@ -12,7 +13,19 @@ const CartPage = () => {
   }, 0);
 
   return !carrito.length ? (
-    <h1>No hay productos, agrega uno.</h1>
+    <Container>
+      <Row>
+        <Col className="d-flex justify-content-center mt-3">
+          <img src={VACIO} alt="Carrito Vacío" height={300}></img>
+        </Col>
+      </Row>
+      <Row className="text-center mb-3">
+        <h2>
+          ¡Oops! Parece que aún no has añadido nada a tu carrito. Continua
+          comprando para agregar productos a tu carrito
+        </h2>
+      </Row>
+    </Container>
   ) : (
     <Row>
       <Col>

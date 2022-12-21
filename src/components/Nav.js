@@ -13,8 +13,7 @@ const NavComponent = () => {
     <Navbar className="NAV" variant="dark" expand="sm">
       <Container>
         <Navbar.Brand href="/">
-          {" "}
-          <img src={TLALLI} alt="TLALLI" height={50}></img>{" "}
+          <img src={TLALLI} alt="TLALLI" height={50}></img>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
