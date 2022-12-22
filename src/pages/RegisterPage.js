@@ -5,6 +5,7 @@ import { loginSignUp } from "../services";
 import Loader from "../components/Loader";
 import { UserContext } from "../context/User.context";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const RegisterPage = () => {
   const serviceType = "signup";
@@ -29,6 +30,11 @@ const RegisterPage = () => {
       saveUserId(userId);
       saveTipo(tipo);
       event.target.reset();
+      Swal.fire(
+        "¡Bienvenido!",
+        "¡Ya eres parte de la familia TLALLI!",
+        "success"
+      );
     }
     setIsLoading(false);
   };
