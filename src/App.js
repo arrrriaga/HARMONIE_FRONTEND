@@ -9,7 +9,6 @@ import { clienteRoutes, adminRoutes, publicRoutes } from "./routes";
 function App() {
   const { tipo, token } = useContext(UserContext);
   return (
-    //No funciona
     <>
       <NavComponent />
       <main>
