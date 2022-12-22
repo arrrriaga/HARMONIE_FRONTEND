@@ -1,4 +1,3 @@
-import { Container } from "react-bootstrap";
 import { Navigate, Route, Routes } from "react-router-dom";
 import NavComponent from "./components/Nav";
 import FooterComponent from "./components/FooterComponent";
