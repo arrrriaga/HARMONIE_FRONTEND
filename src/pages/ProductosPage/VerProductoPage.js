@@ -6,6 +6,7 @@ import { NavLink, useParams } from "react-router-dom";
 import { useContext } from "react";
 import { ProductContext } from "../../context/Product.context";
 import { UserContext } from "../../context/User.context";
+import Swal from "sweetalert2";
 
 const VerProductoPage = () => {
   const { agregarACarrito } = useContext(ProductContext);
@@ -44,33 +45,50 @@ const VerProductoPage = () => {
                 <h6>ID:{producto._id}</h6>
                 <Card.Footer>
                   <h5>${producto.price}</h5>
-                  {tipo === "admin" ? (
-                    <NavLink
-                      className="btn btn-info"
-                      to={`/products/actualizar/${producto._id}`}
-                    >
-                      Actualizar producto <i className="fa-solid fa-pencil"></i>
-                    </NavLink>
+                  {tipo ? (
+                    tipo === "admin" ? (
+                      <NavLink
+                        className="btn btn-info"
+                        to={`/products/actualizar/${producto._id}`}
+                      >
+                        Actualizar producto{" "}
+                        <i className="fa-solid fa-pencil"></i>
+                      </NavLink>
+                    ) : (
+                      <Button
+                        variant="success"
+                        onClick={() => {
+                          agregarACarrito({
+                            nombre: producto.nombre + producto.ml,
+                            price: producto.price,
+                            _id: producto._id,
+                          });
+                        }}
+                      >
+                        Add to <i className="fas fa-shopping-cart"></i>,
+                      </Button>
+                    )
                   ) : (
-                    <Button
-                      variant="success"
-                      onClick={() => {
-                        agregarACarrito({
-                          nombre: producto.nombre + producto.ml,
-                          price: producto.price,
-                          _id: producto._id,
-                        });
-                      }}
+                    <NavLink
+                      onClick={() =>
+                        Swal.fire({
+                          icon: "info",
+                          title: "Oops...",
+                          text: "¡Es necesario que inicies sesión para poder comprar!",
+                        })
+                      }
+                      className="btn btn-success"
+                      to={`/login`}
                     >
-                      Add to <i className="fas fa-shopping-cart"></i>,
-                    </Button>
+                      Add to <i className="fas fa-shopping-cart"></i>
+                    </NavLink>
                   )}
                   <NavLink
                     className="btn btn-secondary"
                     to={`/products`}
                     type="submit"
                   >
-                    Regresar <i class="fa-solid fa-angles-left"></i>
+                    Regresar <i className="fa-solid fa-angles-left"></i>
                   </NavLink>
                 </Card.Footer>
               </Card.Body>

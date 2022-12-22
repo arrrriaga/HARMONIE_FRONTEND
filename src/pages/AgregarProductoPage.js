@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button, Col, Container, Form, Image, Row } from "react-bootstrap";
 import { nuevoProducto } from "../services";
 import Loader from "../components/Loader";
+import Swal from "sweetalert2";
 
 const AgregarProductoPage = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -19,6 +20,7 @@ const AgregarProductoPage = () => {
     }
     setIsLoading(false);
     setImageSrc("");
+    Swal.fire("Good job!", "¡Producto creado con éxito!", "success");
   };
 
   const imageChanged = (event) => setImageSrc(event.target.value);

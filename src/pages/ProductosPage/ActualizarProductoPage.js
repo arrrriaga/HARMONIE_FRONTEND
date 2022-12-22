@@ -5,6 +5,7 @@ import Loader from "../../components/Loader";
 import "./style.css";
 import { NavLink, useParams } from "react-router-dom";
 import { ProductContext } from "../../context/Product.context";
+import Swal from "sweetalert2";
 
 const ActualizarProductoPage = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -22,7 +23,11 @@ const ActualizarProductoPage = () => {
     await actualizarProducto(productID, productData);
     setIsLoading(false);
     setImageSrc("");
-    alert("Producto actualizado, puede tardar un poco en visualizar el cambio");
+    Swal.fire(
+      "Good job!",
+      "¡Producto actualizado con éxito! puede tardar un poco en visualizar el cambio",
+      "success"
+    );
   };
 
   const imageChanged = (event) => setImageSrc(event.target.value);
@@ -121,7 +126,7 @@ const ActualizarProductoPage = () => {
             <Row className="d-flex justify-content-center mt-3">
               <Col md={3}>
                 <Row>
-                  <Button variant="primary" type="submit">
+                  <Button variant="success" type="submit">
                     Guardar Producto actualizado
                   </Button>
                 </Row>

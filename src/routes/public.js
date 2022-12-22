@@ -3,6 +3,7 @@ import LandingPage from "../pages/LandingPage";
 import LoginPage from "../pages/LoginPage";
 import ProductosPage from "../pages/ProductosPage";
 import RegisterPage from "../pages/RegisterPage";
+import VerProductoPage from "../pages/ProductosPage/VerProductoPage";
 
 export const publicRoutes = [
   {
@@ -15,6 +16,11 @@ export const publicRoutes = [
     path: "/products",
     title: "Productos",
     element: <ProductosPage />,
+  },
+  {
+    path: "/products/detalles/:id",
+    // title: "detalles", //! No se renderiza en NAV
+    element: <VerProductoPage />,
   },
   { path: "/login", title: "Login", element: <LoginPage /> },
   { path: "/register", title: "Register", element: <RegisterPage /> },

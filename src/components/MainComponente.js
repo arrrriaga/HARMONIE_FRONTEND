@@ -28,7 +28,7 @@ const MainComponente = () => {
         </Row>
         <Row className="d-flex justify-content-center">
           <Col xs={8} className="d-flex justify-content-center mb-2">
-            <NavLink className="btn btn-outline-primary" to={`/login`}>
+            <NavLink className="btn btn-outline-primary" to={`/products`}>
               Conoce TLALLI
             </NavLink>
           </Col>
