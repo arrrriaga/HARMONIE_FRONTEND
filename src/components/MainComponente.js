@@ -12,12 +12,12 @@ const MainComponente = () => {
         objectFit: "fill",
       }}
     >
-      <Col style={{ background: "#c1cdaa", margin: "35px" }}>
+      <Col style={{ background: "#c1cdaa", margin: "5%" }}>
         <Row className="d-flex justify-content-center mt-3">
           <img
             src={TLALLI_LG}
             alt="Logo"
-            style={{ minwidth: "100px", maxWidth: "400px" }}
+            style={{ minWidth: "30px", maxWidth: "200px" }}
           />
         </Row>
         <Row className="text-center">
@@ -27,7 +27,7 @@ const MainComponente = () => {
           </h5>
         </Row>
         <Row className="d-flex justify-content-center">
-          <Col xs={8} className="d-flex justify-content-center my-3">
+          <Col xs={8} className="d-flex justify-content-center mb-2">
             <NavLink className="btn btn-outline-primary" to={`/login`}>
               Conoce TLALLI
             </NavLink>

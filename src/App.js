@@ -12,21 +12,19 @@ function App() {
     <>
       <NavComponent />
       <main>
-        <Container fluid>
-          <Routes>
-            {(token
-              ? tipo === "admin"
-                ? adminRoutes
-                : clienteRoutes
-              : publicRoutes
-            ).map((route, index) => (
-              <Route key={index} {...route} />
-            ))}
-            {token !== undefined && (
-              <Route path="*" element={<Navigate to="/" />} />
-            )}
-          </Routes>
-        </Container>
+        <Routes>
+          {(token
+            ? tipo === "admin"
+              ? adminRoutes
+              : clienteRoutes
+            : publicRoutes
+          ).map((route, index) => (
+            <Route key={index} {...route} />
+          ))}
+          {token !== undefined && (
+            <Route path="*" element={<Navigate to="/" />} />
+          )}
+        </Routes>
       </main>
       <FooterComponent />
     </>
