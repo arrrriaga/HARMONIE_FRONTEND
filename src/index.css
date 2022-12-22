@@ -15,3 +15,8 @@ main {
   position: relative;
   object-fit: cover;
 }
+
+h3,
+p {
+  color: black;
+}

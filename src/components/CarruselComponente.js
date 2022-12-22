@@ -13,7 +13,12 @@ const CarruselComponente = () => {
     setIndex(selectedIndex);
   };
   return (
-    <Carousel className="fluid" activeIndex={index} onSelect={handleSelect}>
+    <Carousel
+      className="fluid"
+      activeIndex={index}
+      onSelect={handleSelect}
+      style={{ color: "#0000" }}
+    >
       <Carousel.Item>
         <img
           className="carouselIMG d-block w-100"
@@ -21,8 +26,8 @@ const CarruselComponente = () => {
           alt="First slide"
         />
         <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          <h3>Hidrata tu piel</h3>
+          <p>Reduce las marcas ocasionadas por el paso del tiempo.</p>
         </Carousel.Caption>
       </Carousel.Item>
 
@@ -34,8 +39,8 @@ const CarruselComponente = () => {
         />
 
         <Carousel.Caption>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <h3>Conecta con la naturaleza</h3>
+          <p>Tranquila, todos nuestros productos son de origen natural.</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -46,9 +51,9 @@ const CarruselComponente = () => {
         />
 
         <Carousel.Caption>
-          <h3>Third slide label</h3>
+          <h3>Disfruta al primer contacto</h3>
           <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+            Déjate llevar por tus sentidos con tu rutina de cuidado personal.
           </p>
         </Carousel.Caption>
       </Carousel.Item>
@@ -59,8 +64,8 @@ const CarruselComponente = () => {
           alt="First slide"
         />
         <Carousel.Caption>
-          <h3>Cuarta slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          <h3>Nutre tu piel, nutre tu vida</h3>
+          <p>Déjate consentir por los productos que nos otorga la naturaleza</p>
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
