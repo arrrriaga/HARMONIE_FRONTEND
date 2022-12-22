@@ -13,12 +13,7 @@ const CarruselComponente = () => {
     setIndex(selectedIndex);
   };
   return (
-    <Carousel
-      className="fluid"
-      activeIndex={index}
-      onSelect={handleSelect}
-      style={{ color: "#0000" }}
-    >
+    <Carousel className="fluid" activeIndex={index} onSelect={handleSelect}>
       <Carousel.Item>
         <img
           className="carouselIMG d-block w-100"

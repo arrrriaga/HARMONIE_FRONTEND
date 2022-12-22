@@ -39,14 +39,20 @@ const CartPage = () => {
       </Row>
     </Container>
   ) : (
-    <Row>
-      <Col>
-        <ProductList productos={carrito} total={total} />
-      </Col>
-      <Col>
-        <NavLink className="btn btn-info" to={`/pagos`}>
-          <i className="fa-sharp fa-solid fa-angles-right">Proceder al pago</i>
-        </NavLink>
+    <Row className="d-flex justify-content-center mt-5">
+      <Col md={8}>
+        <Row>
+          <ProductList productos={carrito} total={total} />
+        </Row>
+        <Row className="d-flex justify-content-center ">
+          <Col md={4} className="d-flex justify-content-center ">
+            <NavLink className="btn btn-info" to={`/pagos`}>
+              <i className="fa-sharp fa-solid fa-angles-right">
+                Proceder al pago
+              </i>
+            </NavLink>
+          </Col>
+        </Row>
       </Col>
     </Row>
   );
