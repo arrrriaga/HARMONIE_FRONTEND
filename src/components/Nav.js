@@ -13,7 +13,7 @@ const NavComponent = () => {
   const expand2 = "lg";
   return (
     <>
-      <Navbar key={expand} variant="dark" expand={expand} className="NAV ">
+      <Navbar key={expand} variant="dark" expand={expand} className="NAV">
         <Container fluid>
           <Navbar.Brand href="/">
             <img src={TLALLI} alt="TLALLI" height={50}></img>

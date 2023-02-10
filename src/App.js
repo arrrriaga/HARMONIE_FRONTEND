@@ -9,8 +9,8 @@ function App() {
   const { tipo, token } = useContext(UserContext);
   return (
     <>
-      <NavComponent />
       <main>
+        <NavComponent />
         <Routes>
           {(token
             ? tipo === "admin"

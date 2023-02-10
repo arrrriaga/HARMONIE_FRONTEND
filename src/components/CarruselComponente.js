@@ -22,7 +22,7 @@ const CarruselComponente = () => {
         />
         <Carousel.Caption>
           <h3>Hidrata tu piel</h3>
-          <p>Reduce las marcas ocasionadas por el paso del tiempo.</p>
+          <h2>Reduce las marcas ocasionadas por el paso del tiempo.</h2>
         </Carousel.Caption>
       </Carousel.Item>
 
@@ -35,7 +35,7 @@ const CarruselComponente = () => {
 
         <Carousel.Caption>
           <h3>Conecta con la naturaleza</h3>
-          <p>Tranquila, todos nuestros productos son de origen natural.</p>
+          <h2>Tranquila, todos nuestros productos son de origen natural.</h2>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -47,9 +47,9 @@ const CarruselComponente = () => {
 
         <Carousel.Caption>
           <h3>Disfruta al primer contacto</h3>
-          <p>
+          <h2>
             Déjate llevar por tus sentidos con tu rutina de cuidado personal.
-          </p>
+          </h2>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -60,7 +60,9 @@ const CarruselComponente = () => {
         />
         <Carousel.Caption>
           <h3>Nutre tu piel, nutre tu vida</h3>
-          <p>Déjate consentir por los productos que nos otorga la naturaleza</p>
+          <h2>
+            Déjate consentir por los productos que nos otorga la naturaleza
+          </h2>
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
